@@ -143,13 +143,19 @@ def contact_local_images(cols, rows, start = 0):
         offset_w += tmp
     target.save(os.path.join(DEST, "target.png"), "png")
 
+ONLINE = True
+# ONLINE = False
+
 if __name__ == '__main__':
-    # os.makedirs(DEST, exist_ok=True)
-    # columns, rows, urls = process_curl_script(SCRIPT)
-    # valid, images = validate(columns, rows, urls)
-    # if not valid:
-    #     print("Please check your script!")
-    # else:
-    #     download(images)
-    #     contact_images(columns, rows, images)
-    contact_local_images(321, 15)
+    os.makedirs(DEST, exist_ok=True)
+
+    if ONLINE:
+        columns, rows, urls = process_curl_script(SCRIPT)
+        valid, images = validate(columns, rows, urls)
+        if not valid:
+            print("Please check your script!")
+        else:
+            download(images)
+            contact_images(columns, rows, images)
+    else:
+        contact_local_images(321, 15)
