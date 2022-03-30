@@ -141,7 +141,7 @@ def contact_local_images(cols, rows, start = 0):
             offset_h += h
             tmp = w
         offset_w += tmp
-    target.save(os.path.join(DEST, "target.png"), "png")
+    target.save(os.path.join(DEST, "target-local.jpg"), "jpeg")
 
 ONLINE = True
 # ONLINE = False
@@ -158,4 +158,4 @@ if __name__ == '__main__':
             download(images)
             contact_images(columns, rows, images)
     else:
-        contact_local_images(321, 15)
+        contact_local_images(17, 15, 29)
